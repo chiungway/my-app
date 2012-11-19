@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+<script type="text/javascript" src="klass.min.js"></script>
+<script type="text/javascript" src="code.photoswipe-3.0.5.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+<link href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="photoswipe.css"/>
+<link rel="stylesheet" type="text/css" href="jquery-mobile.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.2.0.min.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.2.0.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min.css"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+<script>
+(function(window, $, PhotoSwipe){
+			
+			$(document).ready(function(){
+				
+				$('div.gallery-page')
+					.live('pageshow', function(e){
+						
+						var 
+							currentPage = $(e.target),
+							options = {},
+							photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options,  currentPage.attr('id'));
+							
+						return true;
+						
+					})
+					
+					.live('pagehide', function(e){
+						
+						var 
+							currentPage = $(e.target),
+							photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
+
+						if (typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null) {
+							PhotoSwipe.detatch(photoSwipeInstance);
+						}
+						
+						return true;
+						
+					});
+				
+			});
+		
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+</script>
+<title>Views Alongside Paramatta River</title>
+<style type="text/css">
+			img.main-image {
+				border: 0 none;
+				padding: 0;
+				vertical-align: middle;
+				display: block;
+				width: 100%;
+				height:100%;
+				
+			}
+			img.map-image{
+			border:0 none;
+			margin:auto;
+			padding:inherit;
+			vertial-align:middle;
+			display:block;
+			width:400px;
+			height:300px;
+			}
+			img.portrait{
+			border:0 none;
+			margin:auto;
+			padding:inherit;
+			vertial-align:middle;
+			display:block;
+			width:413px;
+			height:531px;
+			}
+			body{
+			width:720px;
+			height:1280px;
+			background-color:transparent;
+			}
+</style>
+</head>
+
+<body>
+<div data-role="page" id="home">
+  <div data-role="header" data-position="fixed">
+    <h1 align="justify">Paramatta River Scenry</h1>
+  </div>
+  <img src="images/009.jpg" alt="paramatta river" class="main-image"/>
+  
+  <div data-role="content">
+    <ul data-role="listview">
+      <li><a href="#gallery1" data-transition="pop">Photographs</a></li>
+      <li><a href="#maps">Maps</a></li>
+      <li><a href="#about">About me</a></li>
+    </ul>
+  </div>
+  
+  <div data-role="footer" data-position="fixed">
+  <h2>©Chun Wei's Gallery</h2>
+  </div>
+</div>
+
+
+<div data-role="page" data-add-back-btn="true" id="gallery1" class="gallery-page">
+  <div data-role="header">
+  <h1>Photographs</h1>
+  </div>
+  
+  <div data-role="content" data-theme="b">
+    <ul class="gallery">
+     <li><a href="images/full/001.png" rel="external"><img src="images/thumb/001.png" alt="Rhodes" /></a></li>
+     <li><a href="images/full/002.png" rel="external"><img src="images/thumb/002.png" alt="Silverwater" /></a></li>
+     <li><a href="images/full/003.png" rel="external"><img src="images/thumb/003.png" alt="Rozelle" /></a></li>
+     <li><a href="images/full/004.png" rel="external"><img src="images/thumb/004.png" alt="Rhodes" /></a></li>
+     <li><a href="images/full/005.png" rel="external"><img src="images/thumb/005.png" alt="Drummoyne" /></a></li>
+     <li><a href="images/full/006.png" rel="external"><img src="images/thumb/006.png" alt="Drummoyne" /></a></li>
+     <li><a href="images/full/007.png" rel="external"><img src="images/thumb/007.png" alt="Carbrita" /></a></li>
+     <li><a href="images/full/010.png" rel="external"><img src="images/thumb/010.png" alt="Rozelle" /></a></li>
+     <li><a href="images/full/011.png" rel="external"><img src="images/thumb/011.png" alt="Carbrita" /></a></li>
+
+     </ul>
+  </div>
+
+  <div data-role="footer">
+    <h4>©Chun Wei's Gallery</h4>
+  </div>
+</div>
+
+<div data-role="page" id="maps" data-add-back-btn="true" data-icon="home" data-theme="a" data-content-theme="e">
+ <div data-role="header">
+   <h1>Maps</h1>
+ </div>
+ 
+ <div data-role="content">
+ <div data-role="collapsible-set">
+   <div data-role="collapsible" data-content-theme="e">
+   <h3>Rhodes</h3>
+   <img src="http://maps.google.com/maps/api/staticmap?center=-33.823136, 151.088500&zoom=16&size=400x300&markers=-33.823136, 151.088500&sensor=false" class="map-image"/>
+   <p align="center">Rhodes sits on a peninsula between Bray Bay and Homebush Bay, on the southern bank of the Parramatta River and is located about 3 kilometres from ANZ Stadium, Olympic Park (home of the 2000 Summer Olympics), Sydney International Aquatic Centre, Bicentennial Park and Millennium Parklands.</p>
+   </div>
+   
+   <div data-role="collapsible" data-content-theme="a" data-iconpos="bottom">
+   <h3>Silverwater</h3>
+   <img src="http://maps.google.com/maps/api/staticmap?center=-33.823893,151.051281&zoom=16&size=400x300&markers=-33.823893,151.051281&sensor=false" class="map-image"/>
+   <p align="center">Silverwater is a suburb in western Sydney, in the state of New South Wales Australia 20 kilometres west of the Sydney central business district. It is in the local government area of Auburn Council.Silverwater sits on the southern bank of the Parramatta River.</p>
+   </div>
+   
+   <div data-role="collapsible" data-content-theme="d" >
+   <h3>Rozelle</h3>
+   <img src="http://maps.google.com/maps/api/staticmap?center=-33.859707,151.162473&zoom=16&size=400x300&markers=-33.859707,151.162473&sensor=false" class="map-image"/>
+   <p align="center">The area now known as Rozelle was part of a 550 acre (2.2 km²) grant to colonial surgeon Dr William Balmain (1762-1803) made in 1800 by Governor John Hunter.<br/>
+
+The land was first settled in 1836 and by 1861 had been divided into the well populated eastern suburb of Balmain and the sparsely populated western area, extending to the gates of Callan Park, known as Balmain West..</p>
+   </div>
+   
+   <div data-role="collapsible" data-content-theme="c">
+   <h3>Drummoyne</h3>
+   <img src="http://maps.google.com/maps/api/staticmap?center=-33.852241,151.145475&zoom=16&size=400x300&markers=-33.852241,151.145475&sensor=false" class="map-image"/>
+   <p align="center">Drummoyne is linked to Rozelle by the Victoria Road and Huntleys Point by the Gladesville Bridge. Victoria Road, one of Sydney's busiest roads, cuts through the heart of Drummoyne en route to the Sydney CBD. Victoria Road's presence makes the CBD transport hub extremely accessible, as numerous and frequent bus routes from Sydney's west merge in Drummoyne. However, it also leads to a bottleneck during the morning and evening peaks.</p>
+   </div>
+   
+   <div data-role="collapsible" data-content-theme="b">
+   <h3>Carbritar</h3>
+   <img src="http://maps.google.com/maps/api/staticmap?center=-33.84342,151.115364&zoom=16&size=400x300&markers=-33.84342,151.115364&sensor=false" class="map-image"/>
+   <p align="center">Cabarita is a suburb in the inner-west of Sydney, in the state of New South Wales, Australia. Cabarita is located 16 kilometres west of the Sydney central business district, in the local government area of the City of Canada Bay.
+
+Cabarita is a picturesque suburb, on the Parramatta River, north of Concord.</p>
+   </div>
+ </div>
+
+ <div data-role="footer">
+   <h3>©Chun Wei's Gallery</h3>
+ </div>
+</div>
+
+</div>
+
+<div data-role="page" id="about" data-add-back-btn="true">
+ <div data-role="header">
+ <h1>About me</h1>
+ </div>
+ 
+ <div data-role="content" >
+ <img src="images/me.jpg" id="me" class="portrait"/>
+ <p align="center"><strong>Hi,my name is Chn Wei,I have been engaged in landscape photograph for a couple of years.Hope you guys like my images.</strong></p>
+ </div>
+ 
+ <div data-role="footer">
+  <h3>©Chun Wei's Gallery</h3>
+ </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
